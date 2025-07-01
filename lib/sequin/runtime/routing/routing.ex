@@ -101,7 +101,6 @@ defmodule Sequin.Runtime.Routing do
     %{action: action, record: record, metadata: metadata} = message
     changes = Map.get(message, :changes, nil)
 
-    # TODO Consider memoizing this call
     default_routing_map = routing_module.route(to_string(action), record, changes, Map.from_struct(metadata))
 
     # Convert the map returned by route() to a validated struct
